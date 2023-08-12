@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="col">
+    <h1 class="centered">NOTES</h1>
+  </div>
+  <hr />
+
+  <form class="row">
+    <div class="form-group col-md-2">
+      <button type="submit" class="btn btn-warning" (click)="openDialogAdd()">Add note</button>
+    </div>
+  </form>
+
+  <hr />
+  <form class="row">
+    <div class="form-group col-md-2">
+      <button type="submit" class="btn btn-primary" (click) = "findNotes()">
+        Find notes</button>
+    </div>
+  </form>
+  <hr />
+
+  <div class="col-7 mt-3" id="ventas">
+    <table class="table table-striped" id="lista">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Date</th>
+          <th>UserId</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="tabla-body">
+        <tr *ngFor="let note of notes">
+          <td>{{ note.id }}</td>
+          <td>{{ note.title }}</td>
+          <td>{{ note.description }}</td>
+          <td>{{ note.date }}</td>
+          <td>{{ note.userDto.id }}</td>
+          <td class="mat-actions td-city">
+            <div class="actionsButtons">
+              <button mat-mini-fab color="warn" aria-label="Eliminar" (click)="deleteNote(note)">
+                <mat-icon>delete</mat-icon>
+              </button>
+              <button mat-mini-fab color="primary" aria-label="Editar" (click)="openDialog(note)">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-10 text-right" id="total"></div>
+</div>
