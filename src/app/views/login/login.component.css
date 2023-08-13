@@ -4,6 +4,11 @@ html,body{
     height: 100%;
 }
 
+h1{
+    font-size: 40px;
+    color: #212529;
+}
+
 .login-container{
     position: relative;
     width: 300px;
@@ -54,14 +59,6 @@ html,body{
 
 }
 
-.avatar{
-    width: 100px;height: 100px;
-    margin: 10px auto 30px;
-    border-radius: 100%;
-    border: 2px solid #aaa;
-    background-size: cover;
-}
-
 .form-box input{
     width: 100%;
     padding: 10px;
@@ -89,7 +86,8 @@ html,body{
 }
 
 button{
-    background-color: #f09e3a ;
+    background-color: #3b4999 ;
+    border:none;
     margin-top:15px;
     padding: 10px 20px;
 }
@@ -97,8 +95,14 @@ button{
 button:hover{
     transition: 0.5s;
     transform: scale(1.1);
-    background-color: #f09e3a;
-    border-color: #f09e3a;
+    background-color: #3b4999;
+    border-color: #3b4999;
+}
+
+.btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open .dropdown-toggle.btn-info {
+    color: #fff;
+    background-color: #3b4999;
+    border-color: #3b4999;
 }
 
 .animated {

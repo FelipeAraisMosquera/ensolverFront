@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { PutNoteComponent } from './components/put-note/put-note.component';
 import { AddNoteComponent } from './components/add-note/add-note.component';
+
 /*import { LoginComponent } from './views/login/login.component';
 import { NotesComponent } from './components/notes/notes.component';*/
 

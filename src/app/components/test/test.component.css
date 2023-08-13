@@ -41,14 +41,14 @@ body{
 .add-box .icon{
   height: 78px;
   width: 78px;
-  color: #88ABFF;
+  color: #3b4996;
   font-size: 40px;
   border-radius: 50%;
   justify-content: center;
-  border: 2px dashed #88ABFF;
+  border: 2px dashed #3b4999;
 }
 .add-box p{
-  color: #88ABFF;
+  color: #3b4999;
   font-weight: 500;
   margin-top: 20px;
 }
@@ -228,7 +228,7 @@ form button{
   cursor: pointer;
   font-size: 17px;
   border-radius: 4px;
-  background: #6A93F8;
+  background: #3b4999;
 }
 
 @media (max-width: 660px){

@@ -1,22 +1,16 @@
 <div class="container">
   <div class="col">
-    <h1 class="centered">NOTES</h1>
+    <h1 class="centered"><b>NOTES</b></h1>
   </div>
   <hr />
 
   <form class="row">
-    <div class="form-group col-md-2">
-      <button type="submit" class="btn btn-warning" (click)="openDialogAdd()">Add note</button>
-    </div>
+    <div class="form-group-col-md-2">
+      <img src="/assets/add.png" alt="add" type="button"  class="btn-add" (click)="openDialogAdd()" title="add-note">
+        <img src="/assets/serch.png" alt="serch" type="button"  class="btn-serch" (click)="findNotes()" title="serch">
+      </div>
   </form>
 
-  <hr />
-  <form class="row">
-    <div class="form-group col-md-2">
-      <button type="submit" class="btn btn-primary" (click) = "findNotes()">
-        Find notes</button>
-    </div>
-  </form>
   <hr />
 
   <div class=" mt-3" id="ventas">
@@ -29,10 +23,10 @@
         
         <div class="table-cell actions">
           <div id="date" class="table-cell">{{ note.date }}</div>
-          <button mat-mini-fab color="warn" aria-label="Eliminar" (click)="deleteNote(note)">
+          <button class="red-buttom" mat-mini-fab color="warn" aria-label="Eliminar" (click)="deleteNote(note)">
             <mat-icon>delete</mat-icon>
           </button>
-          <button mat-mini-fab color="primary" aria-label="Editar" (click)="openDialog(note)">
+          <button class="blue-buttom" mat-mini-fab color="primary" aria-label="Editar" (click)="openDialog(note)">
             <mat-icon>edit</mat-icon>
           </button>
         </div>

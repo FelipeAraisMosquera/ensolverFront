@@ -3,6 +3,6 @@
 html, body { height: 100%; }
 body {
      margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
-     background: rgb(255,226,167);
-     background: radial-gradient(circle, rgba(255,226,167,1) 0%, rgba(101,170,247,1) 100%);
- }
+     background: hwb(207 18% 33%);
+     background: radial-gradient(circle, rgba(45,113,170,0.6817718420375962) 18%, rgba(194,194,194,1) 73%, rgba(194,194,194,0.8862536347546831) 100%);
+}
