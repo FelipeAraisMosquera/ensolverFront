@@ -16,7 +16,7 @@
   <div class="mt-3" >
     <div class="colum-table" >
       
-      <div class="table-row" *ngFor="let note of notes">
+      <div class="table-row" *ngFor="let note of notes" (click)="openDialog(note)">
         <div class="table-cell">{{ note.id }}</div>
         <div id="title" class="table-cell" >{{ note.title }}</div>
         <div class="table-cell">{{ note.description }}</div>
@@ -26,9 +26,6 @@
           <div id="date" class="table-cell">{{ note.date }}</div>
           <button class="red-buttom" mat-mini-fab color="warn" aria-label="Eliminar" (click)="deleteNote(note)">
             <mat-icon>delete</mat-icon>
-          </button>
-          <button class="blue-buttom" mat-mini-fab color="primary" aria-label="Editar" (click)="openDialog(note)">
-            <mat-icon>edit</mat-icon>
           </button>
         </div>
       </div>
