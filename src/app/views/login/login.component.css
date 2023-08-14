@@ -36,7 +36,8 @@ h1{
 }
 
 
-.login-container::before,.login-container::after{
+.login-container::before,
+.login-container::after{
     content: "";
     position: absolute;
     width: 100%;height: 100%;

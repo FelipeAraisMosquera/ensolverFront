@@ -11,8 +11,10 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
+  id: string = ''
   email: string = '';
   password: string = '';
+  errorMessage: string = '';
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -26,11 +28,13 @@ export class LoginComponent {
     axios.post('http://localhost:8080/api/user/login', loginData)
     .then(response => {
       console.log(response);
-      this.router.navigate(['/notes']);
+      this.id = response.data.id; 
+      this.router.navigate([`/notes`]); 
     })
     .catch(error => {
       if (error.response && error.response.status === 401) {
-        console.log('Credenciales incorrectas');
+        this.errorMessage = 'Credenciales incorrectas';
+        
       } else {
         console.log('Error de inicio de sesión', error);
       }

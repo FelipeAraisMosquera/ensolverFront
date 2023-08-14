@@ -16,5 +16,6 @@
                 <button class="btn btn-info btn-block login" type="button" (click)="login()">Login</button>
             </form>
         </div>
+        <div class="text-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
     </div>
 </div>

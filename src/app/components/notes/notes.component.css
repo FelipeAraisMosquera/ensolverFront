@@ -26,6 +26,7 @@ body{
   }
   
   .table-row {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -48,14 +49,35 @@ body{
   }
 
   .table-row:hover{
-    border: solid 5px #3b4999;
     background-color: #ffffff;
     cursor: pointer;
-    transform: scale(1.05);
-    
-    
+    transform: scale(1.02);
   }
   
+  .table-row:hover::before,
+  .table-row:hover::after{
+     content: "";
+    position: absolute;
+    width: 100%;height: 100%;
+    top: 3.5px;left: 0;
+    background: #fff;
+    z-index: -1;
+    -webkit-transform: rotateZ(3deg);
+    -moz-transform: rotateZ(3deg);
+    -ms-transform: rotateZ(3deg);
+    border: 1px solid #ccc;
+  }
+
+  .table-row:hover::after{
+    top: 5px;
+    z-index: -2;
+    -webkit-transform: rotateZ(-2deg);
+     -moz-transform: rotateZ(-2deg);
+      -ms-transform: rotateZ(-2deg);
+
+}
+
+
   .header {
     font-weight: bold;
     background-color: #f0f0f0;

@@ -73,7 +73,10 @@ export class NotesComponent {
   }
   
   
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   addNote(){
       axios.post('http://localhost:8080/api/notes/2', 
