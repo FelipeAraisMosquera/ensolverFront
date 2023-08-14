@@ -1,7 +1,8 @@
 <div class="container">
   <div class="col">
-    <h1 class="centered"><b>NOTES</b></h1>
+    <h1 class="centered">{{name}}'s notes</h1>
   </div>
+  <button id="btn-logout" class="btn btn-info btn-block login" (click)="logout()">Cerrar sesión</button>
   <hr />
 
   <form class="row">
@@ -17,14 +18,14 @@
     <div class="colum-table" >
       
       <div class="table-row" *ngFor="let note of notes" (click)="openDialog(note)">
-        <div class="table-cell">{{ note.id }}</div>
         <div id="title" class="table-cell" >{{ note.title }}</div>
         <div class="table-cell">{{ note.description }}</div>
         <div class="table-cell">{{ note.userDto.name}}</div>
         
         <div class="table-cell actions">
           <div id="date" class="table-cell">{{ note.date }}</div>
-          <button class="red-buttom" mat-mini-fab color="warn" aria-label="Eliminar" (click)="deleteNote(note)">
+          <button id="red-buttom" mat-mini-fab color="warn" aria-label="Eliminar" (click)="deleteNote($event,note)"
+          *ngIf="openDialog">
             <mat-icon>delete</mat-icon>
           </button>
         </div>

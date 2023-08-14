@@ -5,6 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { PutNoteComponent } from '../put-note/put-note.component';
 import Swal from 'sweetalert2';
 import { AddNoteComponent } from '../add-note/add-note.component';
+import { Router } from '@angular/router';
+import { DataService } from 'src/app/services/api/DataService';
 
 
 @Component({
@@ -14,6 +16,7 @@ import { AddNoteComponent } from '../add-note/add-note.component';
 })
 export class NotesComponent {
 
+ name = localStorage.getItem('name');
   
   notes!: Array<any>;
   id: number | null = null;
@@ -23,17 +26,27 @@ export class NotesComponent {
   userId: number | null = null;
   dataSource = new MatTableDataSource();
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private router:Router, private dataService: DataService) { }
 
   ngOnInit() {
-    this.findNotes() // Llama a la función para consultar las ventas al iniciar el componente.
+    this.findNotes() 
+    
     
   }
   
+  
 
+  logout() {
+    localStorage.removeItem('token'); 
+    localStorage.removeItem('userId'); 
+    localStorage.removeItem('name'); 
 
+    // Redirige al usuario a la página de inicio de sesión
+    this.router.navigate(['/login']);
+  }
 
-  deleteNote(element: any) {
+  deleteNote(event: Event,element: any) {
+    event.stopPropagation();
     Swal.fire({
       icon: 'question',
       title: '¿Do you want to remove note?',
@@ -61,7 +74,9 @@ export class NotesComponent {
   }
 
   findNotes(){
-   axios.get('http://localhost:8080/api/notes')
+    
+  const userId = localStorage.getItem('userId');
+   axios.get(`http://localhost:8080/api/notes/${userId}`)
    .then((response: any) => {
     this.notes = response.data; 
     this.dataSource.data = this.notes; 
@@ -74,7 +89,8 @@ export class NotesComponent {
   
 
   addNote(){
-      axios.post('http://localhost:8080/api/notes/2', 
+    const userId = localStorage.getItem('userId');
+      axios.post(`http://localhost:8080/api/notes/${userId}`, 
       {
         title: this.title,
         description: this.description
@@ -121,7 +137,7 @@ openDialog(element: any): void {
 }
 
 openDialogAdd() {
-  console.log("entro");
+  console.log("enter");
     const config = {
       data: {
         message:  'Add note',

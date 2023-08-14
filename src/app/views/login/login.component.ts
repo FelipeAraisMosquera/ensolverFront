@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import axios from 'axios';
 import { AuthService } from 'src/app/services/api/AuthService';
 import { Router } from '@angular/router';
-
+import axios from 'axios';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
-  id: string = ''
+  
   email: string = '';
   password: string = '';
   errorMessage: string = '';
@@ -23,22 +21,30 @@ export class LoginComponent {
       email: this.email,
       password: this.password
     };
-  
+
     console.log(loginData);
     axios.post('http://localhost:8080/api/user/login', loginData)
-    .then(response => {
-      console.log(response);
-      this.id = response.data.id; 
-      this.router.navigate([`/notes`]); 
-    })
-    .catch(error => {
-      if (error.response && error.response.status === 401) {
-        this.errorMessage = 'Credenciales incorrectas';
-        
-      } else {
-        console.log('Error de inicio de sesión', error);
-      }
-    });
-  }
+      .then(response => {
+        console.log(response);
 
+        const token = response.data.token;
+        const userId = response.data.user.id;
+        const name = response.data.user.name;
+        localStorage.setItem('token', token);
+        localStorage.setItem('userId', userId);
+        localStorage.setItem('name', name);
+
+
+        
+
+        this.router.navigate(['/notes']);
+      })
+      .catch(error => {
+        if (error.response && error.response.status) {
+          this.errorMessage = 'Credenciales incorrectas';
+        } else {
+          console.log('Error de inicio de sesión', error);
+        }
+      });
+  }
 }

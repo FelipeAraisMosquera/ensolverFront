@@ -1,4 +1,5 @@
-<mat-dialog-content class="dialog-content">
+
+<mat-dialog-content class="mat-card">
   <mat-card class="formCard">
     <div class="elementsformCard">
       <h1>Add note</h1>
@@ -25,9 +26,9 @@
             </div>
           </div>
           <div>
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field class="description" appearance="fill">
               <mat-label>Description</mat-label>
-              <input matInput type="text" formControlName="description" />
+              <input  matInput type="text" formControlName="description" />
             </mat-form-field>
             <div
               class="alert-danger"
@@ -52,12 +53,12 @@
               <button
                 *ngIf="!spinner"
                 type="submit"
-                class="btn"
+                class="btn-save"
                 mat-stroked-button
                 color="primary"
                 [disabled]="!form.valid"
               >
-                Save
+                Modify
               </button>
               <button *ngIf="spinner" class="btn" mat-stroked-button>
                 <span
@@ -65,16 +66,15 @@
                   role="status"
                   aria-hidden="true"
                 ></span>
-                <span class="sr-only"> Saving...</span>
+                <span class="sr-only"> modifying...</span>
               </button>
             </div>
             <div class="buttonCancel">
               <button
-                class="btn"
+                class="btn-cancel"
                 type="button"
                 mat-stroked-button
-                (click)="cancelModify()"
-              >
+                (click)="cancelModify()">
                 Cancel
               </button>
             </div>

@@ -53,8 +53,8 @@ export class AddNoteComponent {
       
         if (this.form.valid) {
           this.spinner = true;
-          
-          axios.post(`http://localhost:8080/api/notes/2`, {
+          const userId = localStorage.getItem('userId');
+          axios.post(`http://localhost:8080/api/notes/${userId}`, {
             title: this.form.value.title,
             description: this.form.value.description
           }).then(() => {

@@ -1,0 +1,43 @@
+.mat-card{
+    width: 500px;
+    height: 600vh;
+}
+
+
+
+.description{
+padding: 25px  5px 10px 0 ;
+margin-right: 10px;
+height: 40vh;
+width: 60vh;
+}
+
+
+.btn-save{
+
+    border: #3b4999;
+    background-color: #3b4999;
+}
+
+.btn-save:not(:disabled){
+    border: #3b4999;
+    color: #ffff;
+    background-color: #3b4999;
+}
+
+.btn-cancel{
+    border: #cf3b3b;
+    color: white;
+    background-color: #cf3b3b;
+}
+
+
+.btn-cancel:not(:disabled){
+    color: white;
+    border: #cf3b3b;
+    background-color: #cf3b3b;
+}
+
+.div:where(.swal2-icon).swal2-question{
+color: #3b4999;
+}

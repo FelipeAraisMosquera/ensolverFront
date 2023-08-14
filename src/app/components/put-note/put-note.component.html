@@ -1,51 +1,86 @@
-<mat-dialog-content class="dialog-content">   
-    <mat-card class="formCard">
-        <div class="elementsformCard">
-            <h1>Edit Note</h1>
-            <form [formGroup]="form" (ngSubmit)="onSubmit()" class="forms-repeat">
-                <div class="inputsRegister">
-                    <div>
-                        <mat-form-field class="example-full-width" appearance="fill">
-                            <mat-label>title</mat-label>
-                            <input matInput type="text" formControlName="title">
-                        </mat-form-field>
-                        <div class="alert-danger"
-                            *ngIf="form.get('title')?.errors && (form.get('title')?.dirty || form.get('title')?.touched)">
-                            <div class="container-error-message" *ngIf="form.get('title')?.hasError('required')">
-                                The title field is required
-                            </div>
-                       </div>                    
-                    </div>
-                    <div>
-                        <mat-form-field class="example-full-width" appearance="fill">
-                            <mat-label>description</mat-label>
-                            <input matInput type="text" formControlName="description">
-                        </mat-form-field>
-                        <div class="alert-danger"
-                            *ngIf="form.get('description')?.errors && (form.get('description')?.dirty || form.get('description')?.touched)">
-                            <div class="container-error-message" *ngIf="form.get('description')?.hasError('required')">
-                                The description field is required
-                            </div>
-                       </div>                    
-                    </div>
-                </div>    
-                <div>
-                    <div class="buttonsModify">
-                        <div class="buttonModify">
-                            <button *ngIf="!spinner" type="submit" class="btn" mat-stroked-button color="primary"
-                                [disabled]="!form.valid">Modify</button>
-                            <button *ngIf="spinner" class="btn" mat-stroked-button>
-                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                                <span class="sr-only"> Modifying...</span>
-                            </button>
-                        </div>
-                        <div class="buttonCancel">
-                            <button class="btn" type="button" mat-stroked-button
-                                (click)=cancelModify()>Cancel</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
+<mat-dialog-content class="mat-card">
+  <mat-card class="formCard">
+    <div class="elementsformCard">
+      <h1>Add note</h1>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="forms-repeat">
+        <div class="inputsRegister">
+          <div>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Title</mat-label>
+              <input matInput type="text" formControlName="title" />
+            </mat-form-field>
+            <div
+              class="alert-danger"
+              *ngIf="
+                form.get('title')?.errors &&
+                (form.get('title')?.dirty || form.get('title')?.touched)
+              "
+            >
+              <div
+                class="container-error-message"
+                *ngIf="form.get('title')?.hasError('required')"
+              >
+                The title field is required
+              </div>
+            </div>
+          </div>
+          <div>
+            <mat-form-field class="description" appearance="fill">
+              <mat-label>Description</mat-label>
+              <input matInput type="text" formControlName="description" />
+            </mat-form-field>
+            <div
+              class="alert-danger"
+              *ngIf="
+                form.get('description')?.errors &&
+                (form.get('description')?.dirty ||
+                  form.get('description')?.touched)
+              "
+            >
+              <div
+                class="container-error-message"
+                *ngIf="form.get('description')?.hasError('required')"
+              >
+                The description field is required
+              </div>
+            </div>
+          </div>
         </div>
-    </mat-card>
+        <div>
+          <div class="buttonsModify">
+            <div class="buttonModify">
+              <button
+                *ngIf="!spinner"
+                type="submit"
+                class="btn-save"
+                mat-stroked-button
+                color="primary"
+                [disabled]="!form.valid"
+              >
+                modify
+              </button>
+              <button *ngIf="spinner" class="btn" mat-stroked-button>
+                <span
+                  class="spinner-border spinner-border-sm"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+                <span class="sr-only"> modifying...</span>
+              </button>
+            </div>
+            <div class="buttonCancel">
+              <button
+                class="btn-cancel"
+                type="button"
+                mat-stroked-button
+                (click)="cancelModify()"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </mat-card>
 </mat-dialog-content>
